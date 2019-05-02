@@ -1,5 +1,6 @@
 #ifndef ALLOCATOR_PROJECT_TESTING_CORE_HXX
 #include <map>
+#include <gtest/gtest.h>
 #include "FixedBlockAllocator.hpp"
 #include "NewDeleteCallCounter.hxx"
 #define ALLOCATOR_PROJECT_TESTING_CORE_HXX
@@ -132,35 +133,10 @@ bool customSListContainerTest(){
 	return true;
 }
 
-/*
-int main(int argc, char* argv[]) {
-	using namespace std;
-	//using allocator_project::FixedStackMemoryBlock<>
-
-	
-	//return RUN_ALL_TESTS();
+int main(int argc, char *argv[])
+{
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
 }
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif // !TESTING_CORE_HPP
