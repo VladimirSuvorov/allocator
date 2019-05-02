@@ -31,27 +31,28 @@ include_directories(
 
 #Targets
 add_executable(allocator Allocator.cpp)
-#add_executable(homework_test homework_test.cpp)
+add_executable(homework_test totalTest.cpp)
 
 
 
 #Compilation setings
-set_target_properties(allocator
+set_target_properties(allocator homework_test
 PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
     COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra;--std=c++17;"
 #    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
-##set_target_properties(
-#  input_test 
+
+set_target_properties(homework_test
+#  homework_test 
 #  lexicographical_reverse_test
 #  filtration_by_first_byte_test 
 #  filtration_by_first_and_second_bytes_test
 #  filtration_by_any_byte_test
-#PROPERTIES
-#    INCLUDE_DIRECTORIES ${GTEST_INCLUDE_DIR}
-#)
+PROPERTIES
+    INCLUDE_DIRECTORIES ${GTEST_INCLUDE_DIR}
+)
 
 
 #Linking
@@ -60,11 +61,10 @@ PROPERTIES
 #)
 
 
-#target_link_libraries(filtration_by_any_byte_test
-#    ${Boost_LIBRARIES}
-#    ${GTEST_LIBRARIES}
-#    Threads::Threads
-#)
+target_link_libraries(homework_test
+    ${GTEST_LIBRARIES}
+    Threads::Threads
+)
 
 #Install
 install(TARGETS allocator RUNTIME DESTINATION bin)
@@ -94,7 +94,7 @@ include(CPack)
 
 #Testing
 enable_testing()
-#add_test(input_test input_test)
+add_test(homework_test homework_test)
 #add_test(lexicographical_reverse_test lexicographical_reverse_test)
 #add_test(filtration_by_first_byte_test filtration_by_first_byte_test)
 #add_test(filtration_by_first_and_second_bytes_test filtration_by_first_and_second_bytes_test)
