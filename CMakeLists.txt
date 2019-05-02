@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 
 #Project config
-set(PROJECT_NAME "ip_filter")
+set(PROJECT_NAME "allocator")
 if(DEFINED ENV{TRAVIS_BUILD_NUMBER})
   project(${PROJECT_NAME} VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 else()
@@ -41,9 +41,9 @@ PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
     COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra;--std=c++17;"
-    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
+#    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
-#set_target_properties(
+##set_target_properties(
 #  input_test 
 #  lexicographical_reverse_test
 #  filtration_by_first_byte_test 
