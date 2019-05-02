@@ -15,7 +15,7 @@ size_t factorial(size_t index)noexcept {
 template<
 	typename Key,
 	typename Value = Key,
-	typename Allocator= allocator_project::allocator::FixedBlockAllocator<>>
+	typename Allocator= allocator_project::allocator::FixedBlockAllocator<std::pair<const Key, Value>>>
 	using less_ordered_map=
 	std::map<
 	Key,
