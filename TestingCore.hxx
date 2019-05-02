@@ -71,9 +71,9 @@ bool memoryBlockMustBeEmptyBeforeAllocationAndDeallocateCorrectly() {
 		return false;
 	
 	auto allocUpToMoreThanN = fsmb.allocate(lessThanN);	//allocated == N + lessThanN // MORE THAN N
-	   
+	//>   
 	//OKAY: something could be allocated, but the must not be deallocated anything, the next block must appear
-	/*if ((global_new_delete_counters.new_calls == 0)|| (global_new_delete_counters.delete_calls != 0) || (!fsmb.hasNext()))
+	if ((global_new_delete_counters.new_calls == 0)|| (global_new_delete_counters.delete_calls != 0) || (!fsmb.hasNext()))
 		return false;
 
 	//curent block has next one, but next one must not have another next one.
@@ -90,7 +90,7 @@ bool memoryBlockMustBeEmptyBeforeAllocationAndDeallocateCorrectly() {
 	
 	//as far as all memory of the last block was deallocated, the last block must be deleted, 
 	//whereas the current one must have a free space as it had before.
-	if ((fsmb.free_size() != (N - lessThanN)) || (fsmb.hasNext()) || (global_new_delete_counters.delete_calls == 0))return false;
+	/*if ((fsmb.free_size() != (N - lessThanN)) || (fsmb.hasNext()) || (global_new_delete_counters.delete_calls == 0))return false;
 
 	global_new_delete_counters.reset_delete_call_counter();
 	fsmb.deallocate(allocLessThanN, lessThanN);// deallocate all remaining memory, no actual deletion must be performed
