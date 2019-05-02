@@ -87,10 +87,11 @@ bool memoryBlockMustBeEmptyBeforeAllocationAndDeallocateCorrectly() {
 	if ((fsmb.free_size() != (N - lessThanN)) || (!fsmb.hasNext()) || (global_new_delete_counters.delete_calls != 0))return false;
 
 	fsmb.deallocate(allocUpToMoreThanN, lessThanN);// deallocate last block
-	//>
+	
 	//as far as all memory of the last block was deallocated, the last block must be deleted, 
 	//whereas the current one must have a free space as it had before.
-	//???if ((fsmb.free_size() != (N - lessThanN)) || (fsmb.hasNext()) || (global_new_delete_counters.delete_calls == 0))return false;
+	//But in theory only. In practice work on MSVC and dont work on GCC. Disable that check for the moment
+	//if ((fsmb.free_size() != (N - lessThanN)) || (fsmb.hasNext()) || (global_new_delete_counters.delete_calls == 0))return false;
 
 	global_new_delete_counters.reset_delete_call_counter();
 	fsmb.deallocate(allocLessThanN, lessThanN);// deallocate all remaining memory, no actual deletion must be performed
@@ -99,7 +100,7 @@ bool memoryBlockMustBeEmptyBeforeAllocationAndDeallocateCorrectly() {
 	//cos delete counter was reset to 0, before the command and command does not lead to another deletion,
 	//delete counter must be = 0.
 	if ((!fsmb.empty()) || (fsmb.free_size() != N) || (global_new_delete_counters.delete_calls != 0))return false;
-	//>>>
+	
 	bool thrown = false;
 	try {
 		fsmb.allocate((N * N));//must throw bad_alloc, cos cant allocate more than N at a given time
