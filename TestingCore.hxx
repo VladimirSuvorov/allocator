@@ -1,6 +1,7 @@
 #ifndef ALLOCATOR_PROJECT_TESTING_CORE_HXX
 #include <map>
 #include <gtest/gtest.h>
+#include "SList.hpp"
 #include "FixedBlockAllocator.hpp"
 #include "NewDeleteCallCounter.hxx"
 #define ALLOCATOR_PROJECT_TESTING_CORE_HXX
