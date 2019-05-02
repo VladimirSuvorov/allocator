@@ -47,7 +47,6 @@ void run_case(std::string_view initial_message, std::string_view output_format, 
 	cout << endl;
 	printMemoryAllocDeallocNotificationMessage("deallocations");
 }
-#include "TestingCore.hxx"
 int main(int argc, char* argv[]) {
 	using namespace std;
 	using allocator_project::allocator::FixedBlockAllocator;
