@@ -3,17 +3,21 @@
 
 TEST(mustAllocateMemoryNotMoreThanOneTimePer_N_elements, mustAllocateMemoryNotMoreThanOneTimePer_N_elements){
     using namespace std;
-    ASSERT_TRUE(mustAllocateMemoryNotMoreThanOneTimePer_N_elements<size_t,size_t,10,0>());
+    bool mustBeTrue = mustAllocateMemoryNotMoreThanOneTimePer_N_elements<size_t,size_t,10,0>();
+    ASSERT_TRUE(mustBeTrue);
 }
 TEST(mustAllocateAndDeallocateMemorySameTimes, mustAllocateAndDeallocateMemorySameTimes){
     using namespace std;
-    ASSERT_TRUE(mustAllocateAndDeallocateMemorySameTimes<size_t,size_t,10,0>());
+    bool mustBeTrue = mustAllocateAndDeallocateMemorySameTimes<size_t,size_t,10,0>();
+    ASSERT_TRUE(mustBeTrue);
 }
 TEST(memoryBlockMustBeEmptyBeforeAllocationAndDeallocateCorrectly, memoryBlockMustBeEmptyBeforeAllocationAndDeallocateCorrectly){
     using namespace std;
-    ASSERT_TRUE(memoryBlockMustBeEmptyBeforeAllocationAndDeallocateCorrectly<size_t,size_t,10,0,3>());
+    bool mustBeTrue = memoryBlockMustBeEmptyBeforeAllocationAndDeallocateCorrectly<size_t,size_t,10,0,3>();
+    ASSERT_TRUE(mustBeTrue);
 }
 TEST(customSListContainerTest, customSListContainerTest){
     using namespace std;
-    ASSERT_TRUE(customSListContainerTest<size_t,size_t,10,0>());
+    bool mustBeTrue = customSListContainerTest<size_t,size_t,10,0>();
+    ASSERT_TRUE(mustBeTrue);
 }
