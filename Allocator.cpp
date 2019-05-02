@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include <map>
-
+#define ALLOCATOR_PROJECT_NEW_DELETE_CALL_COUNTER_USE_OUTPUT//for output allocation and deallocation calls
 #include "NewDeleteCallCounter.hxx"
 
 #include "SList.hpp"
