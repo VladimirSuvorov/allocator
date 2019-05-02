@@ -98,8 +98,8 @@ bool memoryBlockMustBeEmptyBeforeAllocationAndDeallocateCorrectly() {
 	//after all, memory block must be empty and clear.
 	//cos delete counter was reset to 0, before the command and command does not lead to another deletion,
 	//delete counter must be = 0.
-	if ((!fsmb.empty()) || (fsmb.free_size() != N) || (global_new_delete_counters.delete_calls != 0))return false;
-/*
+	//>>>if ((!fsmb.empty()) || (fsmb.free_size() != N) || (global_new_delete_counters.delete_calls != 0))return false;
+
 	bool thrown = false;
 	try {
 		fsmb.allocate((N * N));//must throw bad_alloc, cos cant allocate more than N at a given time
@@ -109,7 +109,7 @@ bool memoryBlockMustBeEmptyBeforeAllocationAndDeallocateCorrectly() {
 	if (!thrown)return false;
 
 	//it must not say, that it owns a pointer (e.g. nullptr), that does not belongs to it
-	if(fsmb.owns(nullptr))return false;*/
+	if(fsmb.owns(nullptr))return false;
 
 	return true;
 }
